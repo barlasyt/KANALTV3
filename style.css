@@ -1,0 +1,121 @@
+:root{
+  --bg:#141414;
+  --bg-elev:#1f1f1f;
+  --red:#e50914;
+  --text:#ffffff;
+  --text-dim:#b3b3b3;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',Roboto,Arial,sans-serif;
+  overflow-x:hidden;
+}
+.hidden{display:none !important;}
+
+/* PROFİL EKRANI */
+#profile-screen{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:24px;
+  padding:env(safe-area-inset-top,0) 16px env(safe-area-inset-bottom,0);
+}
+.logo{color:var(--red);font-weight:900;font-size:28px;letter-spacing:1px;text-transform:uppercase;}
+#profile-screen h2{color:var(--text-dim);font-weight:400;}
+.profile-list{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.profile-card{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;border:none;background:none;color:var(--text);
+}
+.profile-avatar{
+  width:90px;height:90px;border-radius:10px;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;
+  border:3px solid transparent;
+}
+.profile-card:hover .profile-avatar{border-color:#fff;}
+.add-profile-btn{
+  margin-top:12px;background:none;border:1px solid var(--text-dim);
+  color:var(--text-dim);padding:10px 18px;border-radius:4px;cursor:pointer;
+}
+
+/* ÜST BAR */
+.topbar{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;gap:20px;
+  padding:calc(14px + env(safe-area-inset-top,0)) 24px 14px;
+  background:linear-gradient(to bottom, rgba(20,20,20,0.95), transparent);
+}
+.search-wrap{flex:1;max-width:320px;}
+#search-input{
+  width:100%;padding:8px 12px;border-radius:4px;border:1px solid #444;
+  background:rgba(0,0,0,0.6);color:var(--text);
+}
+.profile-chip{
+  width:36px;height:36px;border-radius:6px;background:var(--red);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  position:relative;height:46vh;min-height:260px;
+  background:#000 center/cover no-repeat;
+  display:flex;align-items:flex-end;
+}
+.hero-overlay{
+  background:linear-gradient(to top, var(--bg) 5%, transparent 80%);
+  width:100%;padding:24px;
+}
+.hero-overlay h2{font-size:clamp(20px,4vw,34px);margin-bottom:8px;}
+.hero-overlay p{color:var(--text-dim);max-width:600px;margin-bottom:14px;font-size:14px;}
+.play-btn{
+  background:var(--text);color:#000;border:none;
+  padding:10px 24px;border-radius:4px;font-weight:700;cursor:pointer;
+  font-size:15px;
+}
+.play-btn:hover{opacity:0.8;}
+
+/* SATIRLAR */
+#rows-container{padding:10px 0 60px;}
+.row{margin-bottom:28px;}
+.row h3{padding:0 24px 10px;font-size:18px;}
+.row-scroll{
+  display:flex;gap:10px;overflow-x:auto;padding:0 24px 10px;
+  scrollbar-width:thin;
+}
+.card{
+  flex:0 0 auto;width:220px;cursor:pointer;border-radius:4px;overflow:hidden;
+  transition:transform .2s;background:var(--bg-elev);
+}
+.card:hover{transform:scale(1.06);z-index:5;}
+.card img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;}
+.card-title{padding:6px 8px;font-size:12px;color:var(--text-dim);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* OYNATICI MODAL */
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,0.9);
+  z-index:100;display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-inner{width:100%;max-width:960px;}
+.video-frame-wrap{position:relative;width:100%;padding-top:56.25%;background:#000;}
+#video-frame{position:absolute;top:0;left:0;width:100%;height:100%;}
+#player-title{margin-top:10px;font-size:16px;}
+.close-btn{
+  float:right;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;
+  margin-bottom:8px;
+}
+
+/* DURUM KUTULARI */
+.loading,.error-box{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:var(--bg-elev);padding:16px 24px;border-radius:6px;z-index:200;
+}
+.error-box{color:#ff6b6b;max-width:80vw;text-align:center;}
+
+@media (prefers-color-scheme: light){
+  /* Uygulama bilinçli olarak koyu temalı; TV/konsol kullanımı için sabit tutuldu */
+}

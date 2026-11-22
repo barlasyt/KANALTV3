@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kanal TV</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PROFİL SEÇİM EKRANI -->
+  <div id="profile-screen" class="screen">
+    <h1 class="logo" id="app-title-profile">KANAL TV</h1>
+    <h2>Kim izliyor?</h2>
+    <div id="profile-list" class="profile-list"></div>
+    <button id="add-profile-btn" class="add-profile-btn">+ Yeni Profil</button>
+  </div>
+
+  <!-- ANA EKRAN -->
+  <div id="main-screen" class="screen hidden">
+    <header class="topbar">
+      <span class="logo" id="app-title">KANAL TV</span>
+      <div class="search-wrap">
+        <input id="search-input" type="text" placeholder="Video ara...">
+      </div>
+      <div class="profile-chip" id="current-profile">👤</div>
+    </header>
+
+    <div id="hero" class="hero">
+      <div class="hero-overlay">
+        <h2 id="hero-title">Yükleniyor...</h2>
+        <p id="hero-desc"></p>
+        <button id="hero-play" class="play-btn">▶ Oynat</button>
+      </div>
+    </div>
+
+    <div id="rows-container"></div>
+  </div>
+
+  <!-- OYNATICI MODAL -->
+  <div id="player-modal" class="modal hidden">
+    <div class="modal-inner">
+      <button id="close-player" class="close-btn">✕</button>
+      <div class="video-frame-wrap">
+        <iframe id="video-frame" src="" frameborder="0"
+          allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+      </div>
+      <h3 id="player-title"></h3>
+    </div>
+  </div>
+
+  <div id="loading" class="loading hidden">Yükleniyor...</div>
+  <div id="error-box" class="error-box hidden"></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
